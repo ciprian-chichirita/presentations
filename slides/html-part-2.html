@@ -1,0 +1,712 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>HTML Presentation</title>
+
+		<link rel="stylesheet" href="/css/reveal.css">
+		<!-- 		<link rel="stylesheet" href="css/theme/black.css">
+			<link rel="stylesheet" href="css/theme/white.css">
+			<link rel="stylesheet" href="css/theme/league.css">
+			<link rel="stylesheet" href="css/theme/beige.css">
+			<link rel="stylesheet" href="css/theme/simple.css">
+			<link rel="stylesheet" href="css/theme/serif.css">
+			<link rel="stylesheet" href="css/theme/blood.css">
+			<link rel="stylesheet" href="css/theme/night.css">
+			<link rel="stylesheet" href="css/theme/moon.css">
+			<link rel="stylesheet" href="css/theme/solarized.css"> -->
+		<link rel="stylesheet" href="/css/theme/sky.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? '/css/print/pdf.css' : '/css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!-- <link rel="stylesheet" href="/css/custom/450836bbaebcf4c4ae08b331343a7886.css" id="theme"> -->
+		<link rel="stylesheet" href="/css/custom/custom.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="start">
+					<img style="border:0; margin: 0; padding: 0; background: none; box-shadow: none;"
+						src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" width="240" height="240" alt="HTML5 Powered"
+						title="HTML5 Powered">
+					<h2>Introduction - part 2</h2>
+					<p>Ciprian Chichirita</p>
+					<a href="mailto:ciprian.chichirita@tellence.net">ciprian.chichirita@tellence.net</a>
+				</section>
+
+				<section id="contents">
+					<div><span><b>Contents</b></span></div>
+					<div>
+						<ol>
+							<li><a href="#forms">Forms</a></li>
+							<li><a href="#table">Table</a></li>
+							<li><a href="#iframe">Iframe</a></li>
+							<li><a href="#svg-canvas">SVG &amp; canvas</a></li>
+							<li><a href="#html-custom-elem">HTML5 custom elements</a></li>
+							<li><a href="#html-next">To be continued...</a></li>
+						</ol>
+					</div>
+				</section>
+
+				<section id="forms">
+					<section id="get-in-contact-get">
+						<div><span><b>Forms - get</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<!-- EDIT FORMS HERE! -->
+								<form id="get-in-contact" action="http://localhost:3000/#get-in-contact-get" method="get" name="contact-form" target="_self">
+									<fieldset style="border: 1px; border-style: solid; padding: 10px;">
+										<legend style="padding: 0 2px 0 2px;">message me:</legend>
+										<label for="name">name: </label>
+										<input type="text" name="name" required><br>
+						
+										<label for="email">email: </label>
+										<input type="email" name="email" required><br>
+						
+										<label for="subject">subject: </label>
+										<input type="text" name="subject" required><br>
+						
+										<label for="comment">comment: </label>
+										<textarea rows="1" cols="20" name="comment" required dirname="comment.dir" placeholder="Add comment here..."></textarea><br>
+						
+										<input type="submit" value="send">
+									</fieldset>
+								</form>
+								<br>
+								<label for="second-comment">second comment: </label>
+								<textarea rows="1" cols="20" name="second-comment" form="get-in-contact" placeholder="Enter text here..."></textarea>
+							</div>
+							<aside class="notes">
+								<p>A webform, web form or HTML form on a web page allows a user to enter data that is sent to a server for
+									processing</p>
+								<p>GET or POST</p>
+								<p>names and values in the form elements are encoded and sent to the server in an HTTP request message using GET or
+									POST</p>
+								<p>textarea HTML5 has added several new attributes.</p>
+								<p>
+									<ul>
+										<li>autofocus - focus when page loads</li>
+										<li>dirname - textarea text direction</li>
+										<li>maxlength - max chars</li>
+										<li>form</li>
+										<li>placeholder</li>
+										<li>required</li>
+									</ul>
+								</p>
+							</aside>
+						</div>
+					</section>
+
+					<section id="get-in-contact-post">
+						<div><span><b>Forms - post</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<!-- EDIT FORMS HERE! -->
+								<form id="get-in-contact" action="http://localhost:3000/#get-in-contact-post" method="post" name="contact-form"
+									target="_self">
+									<fieldset style="border: 1px; border-style: solid; padding: 10px;">
+										<legend style="padding: 0 2px 0 2px;">message me:</legend>
+										<label for="name">name: </label>
+										<input type="text" name="name" required><br>
+					
+										<label for="email">email: </label>
+										<input type="email" name="email" required><br>
+					
+										<label for="subject">subject: </label>
+										<input type="text" name="subject" required><br>
+					
+										<label for="comment">comment: </label>
+										<textarea rows="1" cols="20" name="comment" required dirname="comment.dir"
+											placeholder="Add comment here..."></textarea><br>
+					
+										<input type="submit" value="send">
+									</fieldset>
+								</form>
+								<br>
+								<label for="second-comment">second comment: </label>
+								<textarea rows="1" cols="20" name="second-comment" form="get-in-contact"
+									placeholder="Enter text here..."></textarea>
+							</div>
+							<aside class="notes">
+								<p>A webform, web form or HTML form on a web page allows a user to enter data that is sent to a server for
+									processing</p>
+								<p>GET or POST</p>
+								<p>names and values in the form elements are encoded and sent to the server in an HTTP request message using GET
+									or
+									POST</p>
+								<p>textarea HTML5 has added several new attributes.</p>
+								<p>
+									<ul>
+										<li>autofocus - focus when page loads</li>
+										<li>dirname - textarea text direction</li>
+										<li>maxlength - max chars</li>
+										<li>form</li>
+										<li>placeholder</li>
+										<li>required</li>
+									</ul>
+								</p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Forms - code sample</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<form id="get-in-contact" action="http://localhost:3000/#contents" method="get" name="contact-form" target="_self">
+												<fieldset>
+													<legend>message me:</legend>
+													<label for="name">name: </label>
+													<input type="text" name="name" required><br>
+											
+													<label for="email">email: </label>
+													<input type="email" name="email" required><br>
+											
+													<label for="subject">subject: </label>
+													<input type="text" name="subject" required><br>
+											
+													<label for="comment">comment: </label>
+													<textarea rows="1" cols="20" name="comment" required dirname="comment.dir" placeholder="Add comment here...">&lt;/textarea><br>
+													<input type="submit" value="send">
+												</fieldset>
+											</form>
+											<br>
+											<label for="second-comment">second comment: </label>
+											<textarea rows="1" cols="20" name="second-comment" form="get-in-contact" placeholder="Enter text here...">&lt;/textarea>
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+
+				<section id="table">
+					<section>
+						<div><span><b>Table</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<table>
+									<caption>table 2x2</caption>
+									<thead>
+										<tr>
+											<th>Title 1</th>
+											<th>Title 2</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>c1 r1</td>
+											<td>c2 r1</td>
+										</tr>
+										<tr>
+											<td>c1 r2</td>
+											<td>c2 r2</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<table>
+												<caption>table 2x2</caption>
+												<thead>
+													<tr>
+														<th>Title 1</th>
+														<th>Title 2</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>c1 r1</td>
+														<td>c2 r2</td>
+													</tr>
+													<tr>
+														<td>c1 r2</td>
+														<td>c1 r2</td>
+													</tr>
+												</tbody>
+											</table>
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p>rowspan - Specifies the number of rows a cell should span</p>
+								<p>colspan - Specifies the number of columns a cell should span</p>
+								<p>The HTML table element represents tabular data — that is, information presented in a two-dimensional table
+										comprised of rows and columns of cells containing data.</p>
+								<p>colspan and rowspan attributes are not good for screenreaders</p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Table</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<table>
+									<caption>table - colspan</caption>
+									<thead>
+										<tr>
+											<th>Title 1</th>
+											<th>Title 2</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>c1 r1</td>
+											<td>c2 r2</td>
+										</tr>
+										<tr>
+											<td>c1 r2</td>
+											<td>c1 r2</td>
+										</tr>
+										<tr>
+											<td colspan="2">c1 r3</td>
+										</tr>
+									</tbody>
+								</table>
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<table>
+												<caption>table - colspan</caption>
+												<thead>
+													<tr>
+														<th>Title 1</th>
+														<th>Title 2</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>c1 r1</td>
+														<td>c2 r2</td>
+													</tr>
+													<tr>
+														<td>c1 r2</td>
+														<td>c1 r2</td>
+													</tr>
+													<tr>
+														<td colspan="2">c1 r3</td>
+													</tr>
+												</tbody>
+											</table>
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p>rowspan - Specifies the number of rows a cell should span</p>
+								<p>colspan - Specifies the number of columns a cell should span</p>
+								<p>The HTML table element represents tabular data — that is, information presented in a two-dimensional table
+										comprised of rows and columns of cells containing data.</p>
+								<p>colspan and rowspan attributes are not good for screenreaders</p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Table</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<table>
+									<caption>table - rowspan</caption>
+									<thead>
+										<tr>
+											<th>Title 1</th>
+											<th>Title 2</th>
+											<th>Title 3</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>c1 r1</td>
+											<td>c2 r2</td>
+											<td rowspan="2">c3 r1</td>
+										</tr>
+										<tr>
+											<td>c1 r2</td>
+											<td>c1 r2</td>
+										</tr>
+									</tbody>
+								</table>
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<table>
+												<caption>table - rowspan</caption>
+												<thead>
+													<tr>
+														<th>Title 1</th>
+														<th>Title 2</th>
+														<th>Title 3</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>c1 r1</td>
+														<td>c2 r2</td>
+														<td rowspan="2">c3 r1</td>
+													</tr>
+													<tr>
+														<td>c1 r2</td>
+														<td>c1 r2</td>
+													</tr>
+												</tbody>
+											</table>
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p>rowspan - Specifies the number of rows a cell should span</p>
+								<p>colspan - Specifies the number of columns a cell should span</p>
+								<p>The HTML table element represents tabular data — that is, information presented in a two-dimensional table
+										comprised of rows and columns of cells containing data.</p>
+								<p>colspan and rowspan attributes are not good for screenreaders</p>
+							</aside>
+						</div>
+					</section>
+
+				</section>
+
+				<section id="iframe">
+					<section>
+						<div><span><b>Iframe</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<iframe title="open maps view" width="300" height="300"
+									src="https://www.openstreetmap.org/export/embed.html?bbox=26.108617186546326%2C44.43759874636655%2C26.109904646873478%2C44.44091566284249&amp;layer=mapnik&amp;marker=44.43925722814174%2C26.1092609167099"
+									style="border: 1px solid black"></iframe><br /><small><a
+										href="https://www.openstreetmap.org/?mlat=44.43926&amp;mlon=26.10926#map=19/44.43926/26.10926">View Larger
+										Map</a></small><br>
+								<iframe src="https://www.w3schools.com">
+									<p>I can't display this!</p>
+								</iframe>
+							</div>
+							<aside class="notes">
+								<p>Inline frames allow you to include content from external sources on your pages</p>
+								<p>Iframes circumvent the cross domain origin policy (images, scripts, and styles do not)</p>
+								<p>Sandboxing third-party widget/applications</p>
+								<p>Display banners</p>
+								<p>Cross domain communication</p>
+								<p>Comet (bidirectional channel between browser and web server)</p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Iframe - code</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<iframe title="open maps view" width="300" height="300"
+												src="https://www.openstreetmap.org/export/embed.html?bbox=26.10...">
+											</iframe><br>
+											<small>
+													<a href="https://www.openstreetmap.org/?mlat=44.43926&amp;mlon=26.10926#map=19/44.43926/26.10926">View Larger Map</a>
+											</small><br>
+											<iframe src="https://www.w3schools.com">
+												<p>I can't display this!</p>
+											</iframe>
+										</textarea>
+									</code>
+								</pre>
+								
+							</div>
+							<aside class="notes">
+								<p>Inline frames allow you to include content from external sources on your pages</p>
+								<p>Iframes circumvent the cross domain origin policy (images, scripts, and styles do not)</p>
+								<p>Sandboxing third-party widget/applications</p>
+								<p>Display banners</p>
+								<p>Cross domain communication</p>
+								<p>Comet (bidirectional channel between browser and web server)</p>
+								<p>CORS (Cross-Origin Resource Sharing)</p>
+								<p>
+									Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell a browser to let a web
+									application running at one origin (domain) have permission to access selected resources from a server at a different
+									origin. A web application executes a cross-origin HTTP request when it requests a resource that has a different origin
+									(domain, protocol, and port) than its own origin.
+								</p>
+							</aside>
+						</div>
+					</section>
+					
+				</section>
+
+				<section id="svg-canvas">
+					<section>
+						<div><span><b>SVG (Scalable Vector Graphics)</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<svg width="100" height="100">
+									<circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+								</svg>
+								<p>SVG as image</p>
+								<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon_62532.svg"><br>
+								<a href="https://css-tricks.com/lodge/svg/">https://css-tricks.com/lodge/svg/</a><br>
+								<a href="https://watb.co.uk/blog/5-reasons-you-should-be-using-svgs-over-pngs">https://watb.co.uk/blog/5-reasons-you-should-be-using-svgs-over-pngs</a>
+							</div>
+							<aside class="notes">
+								<p>
+									SVG (Scalable Vector Graphics)
+								</p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>SVG (Scalable Vector Graphics) - code</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<svg width="100" height="100">
+												<circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+											</svg>
+											<p>SVG as image</p>
+											<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon_62532.svg"><br>
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p>
+									SVG (Scalable Vector Graphics)
+								</p>
+							</aside>
+						</div>
+					</section>
+
+					<section id="canvas">
+						<div><span><b>canvas</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+									Your browser does not support the HTML5 canvas tag.
+								</canvas>
+								<script>
+									const c = window.document.querySelector("#myCanvas");
+									const ctx = c.getContext("2d");
+									// Create gradient
+									const grd = ctx.createLinearGradient(0, 0, 200, 0);
+									grd.addColorStop(0, "red");
+									grd.addColorStop(1, "green");
+									// Fill with gradient
+									ctx.fillStyle = grd;
+									ctx.fillRect(10, 10, 150, 80);
+								</script>
+							</div>
+							<aside class="notes">
+								<p>
+										The HTML canvas element is used to draw graphics, on the fly, via JavaScript.
+										The canvas element is only a container for graphics. You must use JavaScript to actually draw the graphics.
+								</p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>canvas - code</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="html">
+										<textarea class="html-entities" readonly>
+											<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+												Your browser does not support the HTML5 canvas tag.
+											</canvas>
+											<script>
+												const c = window.document.querySelector("#myCanvas");
+												const ctx = c.getContext("2d");
+												// Create gradient
+												const grd = ctx.createLinearGradient(0, 0, 200, 0);
+												grd.addColorStop(0, "red");
+												grd.addColorStop(1, "white");
+												// Fill with gradient
+												ctx.fillStyle = grd;
+												ctx.fillRect(10, 10, 150, 80);
+											</script>
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p>
+								</p>
+							</aside>
+						</div>
+					</section>
+				</section>
+
+				<section id="html-custom-elem">
+					<div><span><b>HTML5 custom elements</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>Custom elements are new types of DOM elements that can be defined by authors</p>
+							<p>web components</p>
+							<p>polymer</p>
+							<p>needs a dash in it's name</p>
+							<p>shadow DOM</p>
+							<pre style="width: 100%;">
+								<code data-trim class="html">
+									<textarea class="html-entities" readonly>
+										<my-custom-element>success!</my-custom-element>
+									</textarea>
+								</code>
+							</pre>
+						</div>
+						<aside class="notes">
+							<p>
+								
+							</p>
+						</aside>
+					</div>
+				</section>
+
+				<!-- <section id="how-to-git-basics">
+					<div><span><b>How to git - basics (with github)</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>TODO: add info</p>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section> -->
+
+				<section id="html-next">
+					<section>
+						<div><span><b>To be continued...</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>
+									<ul>
+										<li>How to git - basics (with github)</li>
+										<li>CSS - Introduction</li>
+										<li>Homework</li>
+									</ul>
+								</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>Homework</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="plaintext">
+										<textarea class="html-entities" readonly>
+											☐ have the entire homework on codepen (create an account there too)
+											☐ contact page - add these fields (mandatory):
+												☐ sex (use radio buttons): three values: male, female, unspecified
+												☐ eye color (drop-down): amber, blue, brown, gray, green
+												☐ stats (checkboxes) with: over 1.5m height, over 80 kg,
+												☐ add a date input
+
+											☐ make github account (optional)
+												☐ install or check to see if you have git instaled inside WSL (git --version to check)
+												☐ create a public repo on github named: "web-training"
+												☐ link your account using ssh keys
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+				<!-- <section id="themes">
+						<h2>Themes</h2>
+						<p>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
+								(default)</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+							<br>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+						</p>
+					</section> -->
+
+			</div>
+		</div>
+
+		<script src="/lib/js/head.min.js"></script>
+		<script src="/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '/plugin/markdown/marked.js' },
+					{ src: '/plugin/markdown/markdown.js' },
+					{ src: '/plugin/notes/notes.js', async: true },
+					{ src: '/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<script>
+			(function () {
+				function htmlEntities(str) {
+					// return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+					return String(str).replace(/&/g, '&amp;');
+				}
+
+				var nodesArray = [].slice.call(document.querySelectorAll("textarea.html-entities"));
+				for (let index = 0, len = nodesArray.length; index < len; index++) {
+					const element = nodesArray[index];
+					const parent = element.parentNode;
+					parent.removeChild(element);
+					parent.innerHTML = element.innerHTML.replace(/\t/gi, "  ");
+				}
+			})();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>GIT & CSS - Presentation</title>
+
+		<link rel="stylesheet" href="/css/reveal.css">
+		<!-- 		<link rel="stylesheet" href="css/theme/black.css">
+			<link rel="stylesheet" href="css/theme/white.css">
+			<link rel="stylesheet" href="css/theme/league.css">
+			<link rel="stylesheet" href="css/theme/beige.css">
+			<link rel="stylesheet" href="css/theme/simple.css">
+			<link rel="stylesheet" href="css/theme/serif.css">
+			<link rel="stylesheet" href="css/theme/blood.css">
+			<link rel="stylesheet" href="css/theme/night.css">
+			<link rel="stylesheet" href="css/theme/moon.css">
+			<link rel="stylesheet" href="css/theme/solarized.css"> -->
+		<link rel="stylesheet" href="/css/theme/sky.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? '/css/print/pdf.css' : '/css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!-- <link rel="stylesheet" href="/css/custom/450836bbaebcf4c4ae08b331343a7886.css" id="theme"> -->
+		<link rel="stylesheet" href="/css/custom/custom.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="start">
+					<h2>Introduction</h2>
+					<p>Ciprian Chichirita</p>
+					<a href="mailto:ciprian.chichirita@tellence.net">ciprian.chichirita@tellence.net</a>
+				</section>
+
+				<section id="contents">
+					<div><span><b>Contents</b></span></div>
+					<div>
+						<ol>
+							<li>...</li>
+						</ol>
+					</div>
+				</section>
+				
+				<!-- <section id="themes">
+						<h2>Themes</h2>
+						<p>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
+								(default)</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+							<br>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+						</p>
+					</section> -->
+
+			</div>
+		</div>
+
+		<script src="/lib/js/head.min.js"></script>
+		<script src="/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '/plugin/markdown/marked.js' },
+					{ src: '/plugin/markdown/markdown.js' },
+					{ src: '/plugin/notes/notes.js', async: true },
+					{ src: '/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<script>
+			(function () {
+				function htmlEntities(str) {
+					// return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+					return String(str).replace(/&/g, '&amp;');
+				}
+
+				var nodesArray = [].slice.call(document.querySelectorAll("textarea.html-entities"));
+				for (let index = 0, len = nodesArray.length; index < len; index++) {
+					const element = nodesArray[index];
+					const parent = element.parentNode;
+					parent.removeChild(element);
+					parent.innerHTML = element.innerHTML.replace(/\t/gi, "  ");
+				}
+			})();
+		</script>
+	</body>
+</html>

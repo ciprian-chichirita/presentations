@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>HTML Presentation</title>
+
+		<link rel="stylesheet" href="/css/reveal.css">
+<!-- 		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
+		<link rel="stylesheet" href="css/theme/simple.css">
+		<link rel="stylesheet" href="css/theme/serif.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/solarized.css"> -->
+		<link rel="stylesheet" href="/css/theme/sky.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? '/css/print/pdf.css' : '/css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!-- <link rel="stylesheet" href="/css/custom/450836bbaebcf4c4ae08b331343a7886.css" id="theme"> -->
+		<link rel="stylesheet" href="/css/custom/custom.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="start">
+					<img style="border:0; margin: 0; padding: 0; background: none; box-shadow: none;" src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" width="240" height="240" alt="HTML5 Powered"
+						title="HTML5 Powered">
+					<h2>Introduction</h2>
+					<p>Ciprian Chichirita</p>
+					<a href="mailto:ciprian.chichirita@tellence.net">ciprian.chichirita@tellence.net</a>
+				</section>
+
+				<section id="contents">
+					<div><span><b>Contents</b></span></div>
+					<div>
+						<ol>
+							<li><a href="#www-the-history">WWW - history</a></li>
+							<li><a href="#how-it-works">How it works</a></li>
+							<li><a href="#http-protocol">HTTP/S - protocol</a></li>
+
+							<li><a href="#html-prerequisites">HTML - prerequisites</a></li>
+							<li><a href="#html-first-page">HTML - page</a></li>
+							<li><a href="#html-details">HTML - details</a></li>
+							<li><a href="#html-next">To be continued...</a></li>
+						</ol>
+					</div>
+				</section>
+
+				<section id="www-the-history">
+					<div><span><b>WWW, the history</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>Uniform Resource Locators (URLs)</p>
+							<p>Browser, wget, cURL, cypress (headless browser), postman</p>
+							<p>World Wide Web</p>
+							<p>hypertext links</p>
+							<p>Internet</p>
+							<p>Tim Berners-Lee, CERN near Geneva, Switzerland</p>
+						</div>
+					</div>
+					
+					<aside class="notes">
+						<p>
+							The World Wide Web, commonly known as the WWW and the Web, is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and accessible via the Internet.[1] English scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser in 1990 while employed at CERN near Geneva, Switzerland.
+						</p>
+						<p>
+							Headless browsers provide automated control of a web page in an environment similar to popular web browsers, but are executed via a command-line interface or using network communication. They are particularly useful for testing web pages as they are able to render and understand HTML the same way a browser would, including styling elements such as page layout, colour, font selection and execution of JavaScript and AJAX which are usually not available when using other testing methods.
+						</p>
+					</aside>
+				</section>
+
+				<section id="how-it-works">
+					<section>
+						<div><span><b>how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p><b>CLient</b> --URL--> <b>DNS</b></p>
+								<p><b>CLient</b>
+									<--SERVER ADDR-- <b>DNS</b>
+								</p>
+								<p><b>CLient</b> --REQUEST--> SERVER ADDR</p>
+								<p><b>CLient</b>
+									<--RESPONSE-- SERVER ADDR</p> <p>localhost, 127.0.0.1, IPv4(192.168.0.1), IPv6(::1)
+								</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div><span><b>how it works: URL</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<ul>
+									<li>URI (Uniform Resource Identifier)</li>
+									<li>scheme:[//authority]path[?query][#fragment]</li>
+									<li>http[s]://www.example.com:80[443]/main/index.html?first=true#top</li>
+									<li>http: OR https:</li>
+									<li>//www. or //subdomain.</li>
+									<li>domain example.com</li>
+									<li>port 80 or 443 (ICANN has IANA)</li>
+									<li>path "/main/index.html"</li>
+									<li>query "?first=true"</li>
+									<li>fragment "#top"</li>
+									<li>(hostname == domain name == canonical[according to the rules] name == origin)</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<aside class="notes">
+						<p>
+							IPv4 uses 32-bit addresses which limits the address space to 4 294 967 296 (232) addresses.
+							IPv4 reserves special address blocks for private networks (~18 million addresses) and multicast addresses (~270 million addresses).
+						</p>
+						<p>
+							Internet Protocol version 6 (IPv6) is the most recent version of the Internet Protocol (IP), the communications protocol that provides an identification and location system for computers on networks and routes traffic across the Internet. IPv6 was developed by the Internet Engineering Task Force (IETF) to deal with the long-anticipated problem of IPv4 address exhaustion. IPv6 is intended to replace IPv4.[1] In December 1998, IPv6 became a Draft Standard for the IETF, who subsequently ratified it as an Internet Standard on 14 July 2017.[2]
+						</p>
+						<p>
+							The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers,services, or other resources connected to the Internet or a private network.
+						</p>
+						<p>
+							An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication
+						</p>
+					</aside>
+				</section>
+
+				<section id="http-protocol">
+					<section>
+						<div><span><b>HTTP/S, the protocol</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>http and https, application layer (Open Systems Interconnection - OSI LEVEL)</p>
+								<p>SSL, TLS, HTTP /2 - stateless protocol</p>
+							</div>
+						</div>
+						<aside class="notes">
+							<p>SSL (Secure Sockets Layer), TLS (Transport Layer Security)</p>
+							<p>HTTP /1.1 || /2 || /3 (proposal) - stateless protocol</p>
+						</aside>
+					</section>
+
+					<section>
+						<div><span><b>TLS handshake</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>client -- TLS version, cryptographic alg, data compression methods --> server</p>
+								<p>client <-- cryptographic alg, session ID, server digital certificate, public key -- server</p>
+								<p>client -- verify server digital certificate --> Certificate Authorithy (CA)</p>
+								<p>client -- shared secret key encrypted with server public key --> server</p>
+								<p>client -- finished msg encrypted with shared secret key --> server</p>
+								<p>client <-- finished msg encrypted with shared secret key -- server</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>HTTP /x status codes</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>1xx (Informational): The request was received, continuing process</p>
+								<p>2xx (Successful): The request was successfully received, understood, and accepted</p>
+								<p>3xx (Redirection): Further action needs to be taken in order to complete the request</p>
+								<p>4xx (Client Error): The request contains bad syntax or cannot be fulfilled</p>
+								<p>5xx (Server Error): The server failed to fulfill an apparently valid request</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>HTTP METHODS</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>POST (C)</p>
+								<p>GET (R)</p>
+								<p>PUT (U)</p>
+								<p>DELETE (D)</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					
+				</section>
+
+				<section id="html-prerequisites">
+					<div><span><b>html-prerequisites</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>simple web server: <code class="hljs">python -m SimpleHTTPServer 1337</code></p>
+							<p><code class="hljs">python3 -m http.server 1337</code></p>
+							<p>Validate HTML: <a href="https://validator.w3.org/">https://validator.w3.org/</a></p>
+							<p>Check if HTML feature can be used: <a href="https://caniuse.com/">https://caniuse.com/</a></p>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="html-first-page">
+					<div><span><b>HTML - page</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<pre style="width: 100%;"><code data-trim class="html">
+								<textarea class="html-entities" readonly>
+									<!DOCTYPE html>
+									<html>
+									<head>
+										<meta charset="utf-8">
+										<meta http-equiv="X-UA-Compatible" content="IE=edge">
+										<title>example</title>
+										<meta name="viewport" content="width=device-width, initial-scale=1">
+										<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+										<script src="main.js"></script>
+									</head>
+									
+									<body>
+										<h1> My first HTML page </h1>
+									</body>
+									
+									</html>
+								</textarea>
+							</code></pre>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="html-details">
+					<section>
+						<div><span><b>HTML - details</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;"><code data-trim class="html" style="width: 100%;">
+									<textarea class="html-entities" readonly>
+										<!-- this is a comment -->
+										<!DOCTYPE>
+									</textarea>
+								</code></pre>
+								<a href="https://www.w3schools.com/tags/tag_doctype.asp">https://www.w3schools.com/tags/tag_doctype.asp</a>
+								<p>HTML must-have tags (elements): html, head, body</p>
+								<p>attributes: src, href, lang, async, rel, target, custom-attr</p>
+								<p>src, href, lang, async, rel, target, custom attr</p>
+								<p>_blank, _self (default), <a href="https://www.w3schools.com/html/html_links.asp">href target</a></p>
+								<p><a href="https://www.w3schools.com/html/html_filepaths.asp">src path</a></p>
+								<p>"//" ("//cdn.example.com/") and "/" ("/html/index.html")</p>
+							</div>
+							<aside class="notes">
+								<p>rel - The rel attribute specifies the relationship between the current document and the linked document.</p>
+								<p>The lang attribute specifies the language of the element's content. ex: lang="fr">Ceci est un paragraphe.</p>
+								$lt;img src="picture.jpg"> picture.jpg is located in the same folder as the current page
+								$lt;img src="images/picture.jpg"> picture.jpg is located in the images folder in the current folder
+								$lt;img src="/images/picture.jpg"> picture.jpg is located in the images folder at the root of the current web
+								$lt;img src="../picture.jpg"> picture.jpg is located in the folder one level up from the current folder
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>HTML - details</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;"><code data-trim class="html" style="width: 100%;">
+									<textarea class="html-entities" readonly>
+										<meta charset="UTF-8">
+										<meta name="description" content="Free Web tutorials">
+										<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+										<meta name="author" content="John Doe">
+										<meta name="viewport" content="width=device-width, initial-scale=1.0">
+									</textarea>
+								</code></pre>
+								<p><a href="https://www.w3schools.com/tags/tag_meta.asp">Meta tags</a></p>
+								<p><a href="https://en.wikipedia.org/wiki/Conditional_comment">IE conditionals</a></p>
+								<pre style="width: 100%;"><code data-trim class="html" style="width: 100%;">
+									<textarea class="html-entities" readonly>
+										<!--[if lt IE 9]>
+										  <script src="/js/html5shiv.js"></script>
+										<![endif]-->
+									</textarea>
+								</code></pre>
+							</div>
+							<aside class="notes">
+								<p>Metadata is data (information) about data. The <meta> tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.</p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>HTML - character reference</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;"><code data-trim class="html" style="width: 100%;">
+									<textarea class="html-entities" readonly>
+										&amp;shy; - soft hyphen
+										&amp;nbsp; - non-breaking space
+										&amp;lt; - less then
+										&amp;gt; - greater then
+										&amp;amp; - ampersand
+									</textarea>
+								</code></pre>
+								<p></p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>HTML5 - new tags (some)</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;"><code data-trim class="html" style="width: 100%;">
+									<textarea class="html-entities" readonly>
+										<a>, <img>,
+										<header>, <footer>,
+										<article>, <section>,
+										<fieldset>, <legend>
+									</textarea>
+								</code></pre>
+								<p></p>
+							</div>
+							<aside class="notes">
+								<p>
+									The "fieldset" tag is used to group related elements in a form. The "fieldset" tag draws a box around the related elements.
+								</p>
+								<p>
+									The "legend" tag defines a caption for the "fieldset" element.
+								</p>
+								<p>
+									The "article" tag specifies independent, self-contained content.
+								</p>
+								<p><ul>
+									<li>Forum post</li>
+									<li>Blog post</li>
+									<li>News story</li>
+									<li>Comment</li>
+								</ul></p>
+								<p>The "section" tag defines sections in a document, such as chapters, headers, footers, or any other sections of the document.</p>
+							</aside>
+						</div>						
+					</section>
+
+				</section>
+
+				<section id="html-next">
+					<section>
+						<div><span><b>To be continued...</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>
+									<ul>
+										<li>Forms</li>
+										<li>Table</li>
+										<li>Iframe</li>
+										<li>SVG &amp; canvas</li>
+										<li>HTML5 custom elements</li>
+										<li>Homework</li>
+									</ul>
+								</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>Homework</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 800px;">
+☐ If windows 10, install WSL so you can have python installed:
+☐ Homework:
+	☐ make a personal page that has:
+	☐ a header with a image and text
+	☐ a navigation bar that has 3 links:
+		☐ home page
+		☐ multimedia
+		☐ contact
+	☐ footer - where we will have contact info
+	☐ pages:
+		☐ home page: will have a table with your resume
+		☐ multimedia: will have an embed youtube video, vimeo video, imgur image and a codepen
+		☐ contact: will have a form with this fields:
+			☐ name, email, subject, message, send button
+								</pre>
+								
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+				<!-- <section id="themes">
+					<h2>Themes</h2>
+					<p>
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
+							(default)</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+						<br>
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#"
+							onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section> -->
+				
+			</div>
+		</div>
+
+		<script src="/lib/js/head.min.js"></script>
+		<script src="/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '/plugin/markdown/marked.js' },
+					{ src: '/plugin/markdown/markdown.js' },
+					{ src: '/plugin/notes/notes.js', async: true },
+					{ src: '/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<script>
+			(function () {
+				function htmlEntities(str) {
+					// return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+					return String(str).replace(/&/g, '&amp;');
+				}
+				
+				var nodesArray = [].slice.call(document.querySelectorAll("textarea.html-entities"));
+				for (let index = 0, len = nodesArray.length; index < len; index++) {
+					const element = nodesArray[index];
+					const parent = element.parentNode;
+					parent.removeChild(element);
+					parent.innerHTML = element.innerHTML.replace(/\t/gi, "  ");
+				}
+			})();
+		</script>
+	</body>
+</html>
