@@ -1,0 +1,634 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>GIT & CSS - Presentation</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<!-- 		<link rel="stylesheet" href="css/theme/black.css">
+			<link rel="stylesheet" href="css/theme/white.css">
+			<link rel="stylesheet" href="css/theme/league.css">
+			<link rel="stylesheet" href="css/theme/beige.css">
+			<link rel="stylesheet" href="css/theme/simple.css">
+			<link rel="stylesheet" href="css/theme/serif.css">
+			<link rel="stylesheet" href="css/theme/blood.css">
+			<link rel="stylesheet" href="css/theme/night.css">
+			<link rel="stylesheet" href="css/theme/moon.css">
+			<link rel="stylesheet" href="css/theme/solarized.css"> -->
+		<link rel="stylesheet" href="../../css/theme/sky.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!-- <link rel="stylesheet" href="/css/custom/450836bbaebcf4c4ae08b331343a7886.css" id="theme"> -->
+		<link rel="stylesheet" href="../../css/custom/custom.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="start">
+					<img style="border:0; margin: 0; padding: 0; background: none; box-shadow: none;"
+						src="https://git-scm.com/images/logo@2x.png" width="220" height="92" alt="git logo" title="git">
+					<!-- <img style="border:0; margin: 0; padding: 0; background: none; box-shadow: none;" width="100" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="css3 logo" title="css"> -->
+					
+					<h2>Introduction</h2>
+					<p>Ciprian Chichirita</p>
+					<a href="mailto:ciprian.chichirita@tellence.net">ciprian.chichirita@tellence.net</a>
+				</section>
+
+				<section id="contents">
+					<div><span><b>Contents</b></span></div>
+					<div>
+						<ol>
+							<li><a href="#git-intro">Git: intro</a></li>
+							<li><a href="#git-how-it-works">Git: how it works</a></li>
+							<li><a href="#git-config">Git: config</a></li>
+							<li><a href="#git-commands">Git: commands</a></li>
+							<li><a href="#git-aliases">Git: aliases</a></li>
+							<li><a href="#git-read-more">Git: read more</a></li>
+							<li><a href="#git-homework">homework</a></li>
+						</ol>
+					</div>
+				</section>
+
+				<section id="git-intro">
+					<div><span><b>Git: intro</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>Version control is a system that records changes to a file(s), over time.</p>
+							<p>CLI (command line interface) client</p>
+							<p>Can work offline.</p>
+							<p>You can collaborate with others.</p>
+							<p>Use branches to implement different features/bugs</p>
+							<p>Merge fixes/features</p>
+							<p>Rebase fixes to mitigate conflicts</p>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="git-how-it-works">
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p><b>Repository</b> - A set of files, directories, historical records, commits, and heads. Imagine it as a source
+									code data structure, with
+									the attribute that each source code “element” gives you access to its revision history, among other things.</p>
+								<p><b>.git</b> folder - all git configs</p>
+								<p><b>.gitignore</b> - file, add what you do not want to be tracked by git (user generated)</p>
+								<p>your own files and folders</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>.gitignore file contents</p>
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											# Compiled source #
+											###################
+											*.com
+											*.class
+											*.dll
+											*.exe
+											*.o
+											*.so
+											
+											# Packages #
+											############
+											# it's better to unpack these files and commit the raw source
+											# git has its own built in compression methods
+											*.7z
+											*.dmg
+											*.gz
+											*.iso
+											*.jar
+											*.rar
+											*.tar
+											*.zip
+											
+											# Logs and databases #
+											######################
+											*.log
+											*.sql
+											*.sqlite
+											
+											# OS generated files #
+											######################
+											.DS_Store
+											.DS_Store?
+											._*
+											.Spotlight-V100
+											.Trashes
+											ehthumbs.db
+											Thumbs.db
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<ul>
+									<li><b>modified</b> - file/folder is tracked by git and got modified</li>
+									<li><b>staged</b> - mark the changes for a commit</li>
+									<li><b>commited</b> - all changes got commited (snapshot)</li>
+								</ul>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<ul>
+									<li><b>commit</b> - snapshot of changes inside working directory (checksum)</li>
+									<li><b>branch</b> - a collection of commits (you can have multiple branches with different commits)</li>
+									<li><b>tag</b> - A tag is a mark on specific point in history</li>
+									<li><b>HEAD</b> - is a pointer to the current branch</li>
+								</ul>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<img src="../../images/git-log.png" alt="git log">
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<img src="../../images/git-tag.png" alt="git tag">
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<img src="https://qph.fs.quoracdn.net/main-qimg-80f0658e8fee461f8806d1d8da807b8a" alt="git structure">
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: how it works</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<img src="https://qph.fs.quoracdn.net/main-qimg-abc66334a6d43a41b14e2e38898c4e8b" alt="git structure">
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					
+				</section>
+
+				<section id="git-config">
+					<div><span><b>Git: config</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>git config - add git custom configuration (like name and email)</p>
+							<pre style="width: 100%;">
+								<code data-trim class="hljs">
+									<textarea class="html-entities" readonly>
+										$ git config --global user.name "John Doe"
+										$ git config --global user.email johndoe@example.com
+									</textarea>
+								</code>
+							</pre>
+							<p>read git global values</p>
+							<pre style="width: 100%;">
+								<code data-trim class="hljs">
+									<textarea class="html-entities" readonly>
+										$ git config --list
+									</textarea>
+								</code>
+							</pre>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="git-commands">
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git init - start a git repo (we don't actually use this because we usually use: gitlab, bitbucket or github and these
+											sites will create our git repo for us)
+											git clone git@github.com:ciprian-chichirita/presentations.git
+											git checkout -b "cc/presentations"
+											git checkout master
+											git pull
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git branch
+											git branch -r
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git status
+											git diff
+											git log
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git add
+											git add .
+											git add --all
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git commit
+											git commit -m "initial commit"
+											git commit --amend -m "Initial Commit"
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git push
+											git merge master
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git rebase master
+											git rebase -i commit-checksum(sha string)
+											git rebase -i master
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											git stash
+											git stash list
+											git stash pop
+											git stash apply stash@{0}
+											git stash drop stash@{0}
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											# Reset the staging area, to match the latest commit, and overwrite working dir
+											git reset --hard || --soft || --mixed
+											git reset HEAD -- fileA
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Git: commands</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											# List tags
+											git tag
+											# Create a annotated tag
+											# The -m specifies a tagging message, which is stored with the tag.
+											# If you don’t specify a message for an annotated tag,
+											# Git launches your editor so you can type it in.
+											$ git tag -a v2.0 -m 'my version 2.0'
+											
+											# Show info about tag
+											# That shows the tagger information, the date the commit was tagged,
+											# and the annotation message before showing the commit information.
+											$ git show v2.0
+											
+											# Push a single tag to remote
+											$ git push origin v2.0
+											
+											# Push a lot of tags to remote
+											$ git push origin --tags
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+
+				<section id="git-aliases">
+					<section>
+						<div><span><b>Git: aliases</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p><a target="_blank" href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Basics Git Aliases</a></p>
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											$ git config --global alias.co checkout
+											$ git config --global alias.br branch
+											$ git config --global alias.ci commit
+											$ git config --global alias.st status
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>Git: aliases</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hljs">
+										<textarea class="html-entities" readonly>
+											$ git config --global alias.unstage 'reset HEAD --'
+											# This makes the following two commands equivalent:
+											$ git unstage fileA
+											$ git reset HEAD -- fileA
+										</textarea>
+									</code>
+								</pre>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+
+				<section id="git-read-more">
+					<div><span><b>Git: read more</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p><a href="https://learnxinyminutes.com/docs/git/">https://learnxinyminutes.com/docs/git/</a></p>
+							<p><a href="https://git-scm.com/docs">https://git-scm.com/docs</a></p>
+							<p><a href="https://help.github.com/en/articles/git-and-github-learning-resources">https://help.github.com/en/articles/git-and-github-learning-resources</a></p>
+							<p><a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud</a></p>
+							<p><a href="https://www.quora.com/What-is-Git-and-why-should-I-use-it">https://www.quora.com/What-is-Git-and-why-should-I-use-it</a></p>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="git-homework">
+					<div><span><b>homework</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<pre style="width: 100%;">
+								<code data-trim class="plaintext">
+									<textarea class="html-entities" readonly>
+										☐ make github account
+											☐ install or check to see if you have git instaled inside WSL (git --version to check)
+											☐ create a public repo on github named: "web-training"
+											☐ link your account using ssh keys
+											☐ clone the repo locally
+											☐ add your homework to it
+											☐ make a github.io page for it
+									</textarea>
+								</code>
+							</pre>
+							
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+				<!-- <section id="themes">
+						<h2>Themes</h2>
+						<p>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
+								(default)</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+							<br>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+						</p>
+					</section> -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../../plugin/markdown/marked.js' },
+					{ src: '../../plugin/markdown/markdown.js' },
+					{ src: '../../plugin/notes/notes.js', async: true },
+					{ src: '../../plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<script>
+			(function () {
+				function htmlEntities(str) {
+					// return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+					return String(str).replace(/&/g, '&amp;');
+				}
+
+				var nodesArray = [].slice.call(document.querySelectorAll("textarea.html-entities"));
+				for (let index = 0, len = nodesArray.length; index < len; index++) {
+					const element = nodesArray[index];
+					const parent = element.parentNode;
+					parent.removeChild(element);
+					parent.innerHTML = element.innerHTML.replace(/\t/gi, "  ");
+				}
+			})();
+		</script>
+	</body>
+</html>
