@@ -1,0 +1,965 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>JS - Presentation</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<!-- 		<link rel="stylesheet" href="css/theme/black.css">
+			<link rel="stylesheet" href="css/theme/white.css">
+			<link rel="stylesheet" href="css/theme/league.css">
+			<link rel="stylesheet" href="css/theme/beige.css">
+			<link rel="stylesheet" href="css/theme/simple.css">
+			<link rel="stylesheet" href="css/theme/serif.css">
+			<link rel="stylesheet" href="css/theme/blood.css">
+			<link rel="stylesheet" href="css/theme/night.css">
+			<link rel="stylesheet" href="css/theme/moon.css">
+			<link rel="stylesheet" href="css/theme/solarized.css"> -->
+		<link rel="stylesheet" href="../../css/theme/sky.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!-- <link rel="stylesheet" href="/css/custom/450836bbaebcf4c4ae08b331343a7886.css" id="theme"> -->
+		<link rel="stylesheet" href="../../css/custom/custom.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="start">
+					<img style="border:0; margin: 0; padding: 0; background: none; box-shadow: none;" width="100" src="https://s3.amazonaws.com/media-p.slid.es/uploads/310287/images/1295965/official-javascript-logo.jpg" alt="js logo" title="js">
+					
+					<h2>Introduction</h2>
+					<h4>EcmaScript by JavaScript</h4>
+					<p>Ciprian Chichirita</p>
+					<a href="mailto:ciprian.chichirita@tellence.net">ciprian.chichirita@tellence.net</a>
+				</section>
+
+				<section id="contents">
+					<div><span><b>Contents</b></span></div>
+					<div>
+						<ol>
+							<li><a href="#definition">Definition</a></li>
+							<li><a href="#hello-world">Hello World</a></li>
+							<li><a href="#oop">Some OOP principles</a></li>
+							<li><a href="#js-intro">JavaScript intro</a></li>
+							<li><a href="#homework">Homework</a></li>
+							<li><a href="#resources">Resources</a></li>
+						</ol>
+					</div>
+				</section>
+
+				<section id="definition">
+					<section>
+						<div><span><b>Definition</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>JavaScript was created by Netscape’s Brendan Eich in 1995. It was originally intended as a simpler scripting language
+								for websites, complementing the use of Java for more complex web applications, but its tight integration with Web pages
+								and built-in support in browsers has caused it to become far more common than Java in web frontends.</p>
+								<p>JavaScript isn’t just limited to web browsers, though: Node.js, a project that provides a standalone runtime for Google
+								Chrome’s V8 JavaScript engine, is becoming more and more popular.</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Definition</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>JavaScript often abbreviated as JS, is a high-level, interpreted programming language that
+									conforms to the ECMAScript specification. It is a programming language that is characterized as dynamic, weakly typed,
+									prototype-based and multi-paradigm.</p>
+								<p><strong>dynamic (vs static):</strong> a variable initially bound to a number may be reassigned to a string</p>
+								<p><strong>weakly typed (vs strongly):</strong> type are distinguish in a weakly manner (looser typing rules and may produce unpredictable results or may perform implicit type conversion at runtime)</p>
+								<p><strong>prototype-based (vs classic oop):</strong> In JavaScript, an object is an associative array, augmented with a prototype. JavaScript uses prototypes where many other object-oriented languages use classes for inheritance.</p>
+								<p><strong>multi-paradigm:</strong> event-driven, functional, and imperative (including object-oriented and
+									prototype-based) programming styles.</p>
+								<p>Vanilla JS <strong><em>is</em></strong> plain JavaScript code</p>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+
+				<section id="hello-world">
+					<div><span><b>Hello World</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<pre style="width: 100%;">
+								<code data-trim class="hlcss">
+									<textarea class="html-entities" readonly>
+										<!DOCTYPE html>
+										<html>
+										<head>
+											<meta charset="utf-8">
+											<meta http-equiv="X-UA-Compatible" content="IE=edge">
+											<title>Hello World!</title>
+											<meta name="viewport" content="width=device-width, initial-scale=1">
+											//inside main.js we have:
+											//alert("Hello World!");
+											<script src="main.js"></script>
+											<script>
+												alert("Hello World!");
+											</script>
+											<script type="text/javascript">
+												alert("Hello World!");
+											</script>
+										</head>
+										<body>
+											
+										</body>
+										</html>
+									</textarea>
+								</code>
+							</pre>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="oop">
+					<section>
+						<div><span><b>Some OOP principles</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data,
+								in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods or functions).</p>
+								<ul>
+									<li>Classes (blueprint)</li>
+									<li>Object (instance of a blueprint)</li>
+									<li>Property</li>
+									<li>Method</li>
+									<li>Function</li>
+									<li>Procedure</li>
+									<li>void aka nothing</li>
+									<li>Variable</li>
+									<li>Class variables (static)</li>
+									<li>Instance variables</li>
+									<li>Member variables (global var)</li>
+									<li>Class methods (static)</li>
+									<li>Instance methods</li>
+									<li>Class members</li>
+								</ul>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+
+					<section>
+						<div><span><b>Some OOP principles</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<p>Class-based vs prototype-based</p>
+								<ul>
+									<li>In class-based languages the classes are defined beforehand and the objects are instantiated based on the classes.</li>
+									<li>In prototype-based languages the objects are the primary entities. No classes even exist. The prototype of an object is
+									just another object to which the object is linked. Every object has one prototype link (and only one).</li>
+								</ul>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+
+				<section id="js-intro">
+					<section>
+						<div><span><b>JavaScript intro</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												/* 
+													this is a 
+													multiline comment
+												*/
+												//this is a single line comment
+												"use strict";
+												x = 3.14; // This will cause an error because x is not declared
+												var a = 10;
+												var sum = 5 + 5;
+												var diff = 5 - 2;
+												var div = 10/2;
+												var mul = 10*2;
+												var modulo = 11%2;
+												var length = 16; // Number
+												var lastName = "Johnson"; // String
+												var x = {firstName:"John", lastName:"Doe"}; // Object
+												var cars = ["Saab", "Volvo", "BMW"]; //Array
+												var car; // Value is undefined, type is undefined
+												var person = null; // Now value is null, but type is still an object
+												var nan = "NaN" - 5;//nan is NaN (not a number)
+												var bitshifting = 1 << 2; //=4
+												var parenthesis = (1 + 3) * 2; // = 8
+
+												var boolWithOr = true || false;
+												var boolWithEnd = true && false;
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>JavaScript intro</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												var boolWithNot = !true; // not true
+												var boolEq = "5" == 5; // true
+												var boolTypeCheckEq = "5" === 5; // false
+												var notEqOrDifferent = "5" != 5; //false
+												var notEqOrDifferentTypeCheck = "5" !== 5; //true
+												var greaterThen = 5 > 4; //true
+												var lessThen = 5 < 4; //false
+												var greaterThenOrEq = 5 >= 5; //true
+												var lessThenOrEq = 4 <= 4: //true
+												var concatStr = "Hello" + "World";
+												var v = 0;
+												var res = v++; //or just v++
+												var r = ++v; //or just ++v
+												v += 1;
+
+												var minus = 0;
+												--minus;
+												minus--;
+												minus -=1;
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>JavaScript intro</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												var count = 1;
+												if (count == 3){
+													// evaluated if count is 3
+												} else if (count == 4){
+													// evaluated if count is 4
+												} else {
+													// evaluated if it's not either 3 or 4
+												}
+
+												// As does `while`.
+												while (true){
+													// An infinite loop!
+												}
+
+												// Do-while loops are like while loops, except they always run at least once.
+												var input = 0;
+												do {
+													input++;
+												} while (input <= 5);//input will reach 6
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>JavaScript intro</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												// The `for` loop is the same as C and Java:
+												// initialization; continue condition; iteration.
+												for (var i = 0; i < 5; i++){
+														// will run 5 times
+												}
+
+												//statement_1_0, statement_1_1; statement_2; statement_3_0, statement_3_1
+												for(var i = 0, u = 0; i < 5; i++, u+=2) { 
+													console.log("u is: ", u); // 0, 2, 4, 6, 8
+												}
+
+												// The for/in statement allows iteration over properties of an object.
+												var description = "";
+												var person = {fname:"Paul", lname:"Ken", age:18};
+												for (var x in person){
+														description += person[x] + " ";
+												} // description = 'Paul Ken 18 '
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>JavaScript intro</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												var grade = 'B';
+												switch (grade) {
+													case 'A':
+														console.log("Great job");
+													break;// or return
+
+													case 'B':
+														console.log("OK job");
+													break;
+
+													default:
+														console.log("Oy vey");
+													break;
+												}
+												
+												function test (parameter_1, parameter_2) {
+												console.log("I have received: ", parameter_1, parameter_2);
+												}
+												
+												test("argument 1", "argument 2");
+												
+												var testFunctionExpression = function (param_1) {
+													console.log("param_1 is: ", param_1);
+												}
+												testFunctionExpression();
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>JavaScript intro</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												// This has led to a common pattern of "JavaScript Immediately-invoked Function Expressions (IIFE),
+												// which prevent temporary variables from leaking into the global
+												// scope.
+												(function (){
+													var temporary = 5;
+													// We can access the global scope by assigning to the "global object", which
+													// in a web browser is always `window`. The global object may have a
+													// different name in non-browser environments such as Node.js.
+													window.permanent = 10;
+													console.log("temporary inside IIFE: ", temporary);
+													console.log("window.permanent inside IIFE: ", window.permanent);
+												})();
+												console.log("temporary outside IIFE: ", temporary);
+												console.log("window.permanent outside IIFE: ", window.permanent);
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+				</section>
+
+				<section id="homework">
+					<div><span><b>Homework</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>
+								<ul>
+									<li>Do the <a href="https://javascript30.com/">https://javascript30.com/</a> challenge</li>
+								</ul>
+							</p>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="resources">
+					<div><span><b>Resources</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>
+								<ul>
+									<li><a href="https://en.wikipedia.org/wiki/Object-oriented_programming">https://en.wikipedia.org/wiki/Object-oriented_programming</a></li>
+									<li><a href="https://en.wikipedia.org/wiki/JavaScript">https://en.wikipedia.org/wiki/JavaScript</a></li>
+									<li><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a></li>
+									<li><a href="https://javascript30.com/">https://javascript30.com/</a></li>
+									<li><a href="https://learnxinyminutes.com/docs/javascript/">https://learnxinyminutes.com/docs/javascript/</a></li>
+									<li><a href="http://exploringjs.com/">http://exploringjs.com/</a></li>
+									<li><a href="https://github.com/sorrycc/awesome-javascript">https://github.com/sorrycc/awesome-javascript</a></li>
+									<li><a href="https://www.w3schools.com/js/js_strict.asp">https://www.w3schools.com/js/js_strict.asp</a></li>
+								</ul>
+							</p>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<!-- delete these -->
+				<section id="css-where-can-you-write-it">
+					<section>
+						<div><span><b>CSS: where can you write it - .css file</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p>&lt;link&gt; inside html <strong>&lt;head&gt;</strong></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												<!DOCTYPE html>
+												<html>
+												<head>
+													<meta charset="utf-8">
+													<meta http-equiv="X-UA-Compatible" content="IE=edge">
+													<title>css demo</title>
+													<meta name="viewport" content="width=device-width, initial-scale=1">
+													<!-- you can declare it here as link reference -->
+													<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+												</head>
+												<body>
+												</body>
+												</html>
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>CSS: where can you write it</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p>html <strong>&lt;head&gt;</strong> declaration inside a &lt;style&gt; tag</p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												<!DOCTYPE html>
+												<html>
+												<head>
+													<meta charset="utf-8">
+													<meta http-equiv="X-UA-Compatible" content="IE=edge">
+													<title>css demo</title>
+													<meta name="viewport" content="width=device-width, initial-scale=1">
+													<!-- you can add CSS inside a style tag -->
+													<style type="text/css">
+														/* this is CSS comment */
+														/* this is rule 1 */
+														selector1 {
+															/* here we add CSS properties */
+														}
+														/* this is rule 2 */
+														selector2 {
+															/* here we add CSS properties */
+														}
+													</style>
+												</head>
+												<body>
+												</body>
+												</html>
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>CSS: where can you write it</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p>inline style using <strong>style</strong> html attribute</p>
+									<pre style="width: 100%;">
+										<code data-trim class="hljs">
+											<textarea class="html-entities" readonly>
+												<!DOCTYPE html>
+												<html>
+												<head>
+													<meta charset="utf-8">
+													<meta http-equiv="X-UA-Compatible" content="IE=edge">
+													<title>css demo</title>
+													<meta name="viewport" content="width=device-width, initial-scale=1">
+												</head>
+												<body>
+													<h1 style="/* CSS properties */">my first styled heading!</h1>
+												</body>
+												</html>
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+				</section>
+
+				<section id="css-syntax">
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												/* comment here */
+												selector { property: value; /* more properties...*/ }
+
+												/*
+													<div id="unique-button" class="button button--success" data-attr="some data here">lorem ipsum</div>
+												*/
+												/* we can select this div to apply CSS properties by using: */
+												div {} /* html tag selector */
+												.button {} /* css class selector */
+												.button.button-success {}
+												[data-attr] {} /* attribute selector */
+												[attr='value'] {} /* attribute that is eq to value */
+												#unique-button {} /* id selector */
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												/* comment here */
+												selector { property: value; /* more properties...*/ }
+
+												/*
+													<div id="unique-button" class="button button--success" data-attr="some data here"><p><a href="#">lorem ipsum</a></p></div>
+												*/
+												/* combinations */
+												div .button {}
+												div.button {}
+												div, p {} /* Selects all <div> elements and all <p> elements */
+												div p {} /* Selects all <p> elements inside <div> elements */
+												div > p {} /* Selects all <p> elements where the parent is a <div> element */
+												/* pseudo classes */
+												a:hover {}
+												a:visited {}
+												a:focus {}
+												div:first-child {}
+												div:last-child {}
+												p:nth-child(2) {} /* Selects every <p> element that is the second child of its parent */
+												/* pseudo-elements */
+												/* matches a virtual first child of the selected element */
+												div::before {}
+												/* matches a virtual last child of the selected element */
+												div::after {}
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												/* comment here */
+												selector { property: value; /* more properties...*/ }
+												/*
+													<div id="unique-button" class="button button--success" data-attr="some data here"><p><a href="#">lorem ipsum</a></p></div>
+												*/
+												/* At appropriate places, an asterisk may be used as a wildcard to select every
+												element */
+												* { } /* all elements */
+												.parent * { } /* all descendants */
+												.parent > * { } /* all children */
+												body {
+													padding: 0 0 0; /* shorthand for padding-top|right|bottom|left */
+													width: 50%; /* px|em|rem|vw|vh */
+													color: #FF66EE; /* long hex format */
+													background-image: url(data:image/png;base64,iVBORw0KGgoA...); /* base64 image */
+													font-family: Arial;
+												}
+												@font-face {
+													font-family: myFirstFont;
+													src: url(sansation_light.woff);
+												}
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												/* make the font bigger when shown on a screen at least 480px wide */
+												@media screen and (min-width: 480px) {
+													h1 {
+														font-size: 3em;
+														font-weight: normal;
+													}
+												}
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												.truncate { overflow: hidden; /* scroll|auto */ }
+
+												.pos-rel {
+													position: relative;
+													top: 0;
+													left: 0;
+												}
+
+												.pos-abs {
+													position: absolute;
+													top: 0;
+													left: 0;
+													right: 0;
+													bottom: 0;
+												}
+
+												.d { display: inline; /* inline-block|block|flex|grid */ }
+												.f { float: left: /* right */ }
+												.c { clear: left; /* right|both */ }
+												/* The line-height property specifies the height of a line. */
+												.l-h { line-height: 1.2; }
+												/* only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+												.z { z-index: 5; }
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/csSref/css_functions.asp">https://www.w3schools.com/csSref/css_functions.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												.thing {
+													width: 90%; /* fallback if needed */
+													width: calc(100% - 3em);
+												}
+												#p1 {background-color:rgba(255,0,0,0.3);} /* red with opacity*/
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+
+					<section>
+						<div><span><b>CSS: syntax</b></span></div>
+							<div style="text-align: center">
+								<div style="text-align: left; display: inline-block;">
+									<p><a href="https://www.w3schools.com/css/css3_transitions.asp">https://www.w3schools.com/css/css3_transitions.asp</a></p>
+									<pre style="width: 100%;">
+										<code data-trim class="hlcss">
+											<textarea class="html-entities" readonly>
+												div {
+													width: 100px;
+													height: 100px;
+													background: red;
+													/* https://autoprefixer.github.io/ */
+													-webkit-transition: width 2s; /* Safari */
+													transition: width 2s;
+												}
+											</textarea>
+										</code>
+									</pre>
+								</div>
+								<aside class="notes">
+									<p></p>
+								</aside>
+							</div>
+					</section>
+				</section>
+
+				<section id="css-order">
+					<div><span><b>CSS: order</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p>Order of CSS interpretation:</p>
+							<ol>
+								<li>!important</li>
+								<li>css written inside style attribute</li>
+								<li>css import inside head tag (as link or as style)</li>
+							</ol>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="css-box-model">
+					<div><span><b>CSS: box model</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<ul>
+								<li>Margin - Clears an area outside the border. The margin is transparent</li>
+								<li>Border - A border that goes around the padding and content</li>
+								<li>Padding - Clears an area around the content. The padding is transparent</li>
+								<li>Content - The content of the box, where text and images appear</li>
+							</ul>
+							<p><a href="https://www.w3schools.com/css/css_boxmodel.asp">box model</a></p>
+							<div style="text-align: left; display: inline-block;">
+								<pre style="width: 100%;">
+									<code data-trim class="hlcss">
+										<textarea class="html-entities" readonly>
+											div {
+												margin: 1px 2px 1px 2px;
+												border: 5px solid red;
+												padding: 0;
+												/* The box-sizing property defines how the width and height of an element are calculated */
+												box-sizing: border-box; /* content-box  */
+											}
+											div::before {
+												content: '...';
+											}
+										</textarea>
+									</code>
+								</pre>
+							</div>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+
+				<section id="css-flexbox">
+					<div><span><b>CSS: flex</b></span></div>
+					<div style="text-align: center">
+						<div style="text-align: left; display: inline-block;">
+							<p><a href="https://codepen.io/osublake/pen/dMLQJr">flexbox</a></p>
+							<div style="text-align: left; display: inline-block;">
+								<iframe height="400" style="width: 100%;" scrolling="no" title="Animated Flexbox Playground"
+									src="//codepen.io/osublake/embed/dMLQJr/?height=265&theme-id=0&default-tab=html,result" frameborder="no"
+									allowtransparency="true" allowfullscreen="true">
+									See the Pen <a href='https://codepen.io/osublake/pen/dMLQJr/'>Animated Flexbox Playground</a> by Blake Bowen
+									(<a href='https://codepen.io/osublake'>@osublake</a>) on <a href='https://codepen.io'>CodePen</a>.
+								</iframe>
+							</div>
+						</div>
+						<aside class="notes">
+							<p></p>
+						</aside>
+					</div>
+				</section>
+				
+				<section id="css-layouts">
+					<section>
+						<div><span><b>CSS: layouts</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<div>
+									<p>types</p>
+									<ul>
+										<li>Static layout</li>
+										<li>Fluid layout</li>
+										<li>Responsive layout</li>
+										<li>Fluid-responsive layout</li>
+									</ul>
+								</div>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+					<section>
+						<div><span><b>CSS: layouts</b></span></div>
+						<div style="text-align: center">
+							<div style="text-align: left; display: inline-block;">
+								<div>
+									<p>implementation</p>
+									<ul>
+										<li>CSS float property (old)</li>
+										<li>CSS flexbox (present)</li>
+										<li>CSS framework (e.g.: bootstrap)</li>
+										<li>CSS <a href="https://www.w3schools.com/css/css_grid.asp">grid</a> (new)</li>
+										<li><a href="https://gridbyexample.com/examples/">grid by example</a></li>
+									</ul>
+								</div>
+							</div>
+							<aside class="notes">
+								<p></p>
+							</aside>
+						</div>
+					</section>
+				</section>
+				<!-- <section id="themes">
+						<h2>Themes</h2>
+						<p>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
+								(default)</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+							<br>
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+							<a href="#"
+								onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+						</p>
+					</section> -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../../plugin/markdown/marked.js' },
+					{ src: '../../plugin/markdown/markdown.js' },
+					{ src: '../../plugin/notes/notes.js', async: true },
+					{ src: '../../plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<script>
+			(function () {
+				function htmlEntities(str) {
+					// return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+					return String(str).replace(/&/g, '&amp;');
+				}
+
+				var nodesArray = [].slice.call(document.querySelectorAll("textarea.html-entities"));
+				for (let index = 0, len = nodesArray.length; index < len; index++) {
+					const element = nodesArray[index];
+					const parent = element.parentNode;
+					parent.removeChild(element);
+					parent.innerHTML = element.innerHTML.replace(/\t/gi, "  ");
+				}
+			})();
+		</script>
+	</body>
+</html>
